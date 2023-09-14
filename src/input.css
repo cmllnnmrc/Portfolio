@@ -1,0 +1,489 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.container{
+    @apply max-w-[120rem] mx-auto p-[1rem];
+}
+
+.bg-clip-text {
+    -webkit-text-stroke-color: #FF6F00;
+    -webkit-text-stroke-width: 1px;
+}
+
+.bg-text {
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
+}
+
+
+@layer utilities{
+    .btn{
+        @apply inline-block py-[.5rem] px-[1rem] border-transparent
+    }
+
+    .orange{
+        @apply cursor-pointer text-[1rem] text-light bg-primary rounded-[.3rem] hover:text-dark hover:bg-yellowish transition ease-in-out duration-300 font-[600]
+    }
+
+    .shallow-orange{
+        @apply text-primary text-[1.2rem] bg-transparent rounded-[.3rem] border-[1px] border-primary hover:bg-primary hover:text-light transition ease-in-out duration-300 font-[600]
+    }
+
+    .white{
+        @apply cursor-pointer text-[1rem] text-dark bg-light rounded-[.3rem] hover:text-dark hover:bg-yellowish transition ease-in-out duration-300 font-[600]
+    }
+}
+
+
+@layer components{
+
+    /* ---------- HEADER ---------- */
+
+    .header{
+        @apply relative bg-light
+    }
+
+    .header__wrapper{
+        @apply flex items-center justify-between
+    }
+
+    .header__nav{
+        @apply absolute bg-light right-[-100rem] top-[3.5rem] shadow-[-1px_4px_6px_rgba(0,0,0,.3)] text-center hidden transition-all duration-300 md:relative md:flex md:right-0 md:top-0 md:shadow-[0_0_0_rgba(0)]
+    }
+
+    .header__nav.open{
+        @apply max-h-[100vh] w-[50%] right-0 p-[1rem] block transition-all duration-300
+    }
+
+    .header__nav ul{
+        @apply text-dark border-t-[2px] border-t-primary py-[1rem] text-center md:flex md:gap-x-[2rem] md:font-bold md:border-t-0 
+    }
+
+    .header__nav li{
+        @apply cursor-pointer py-[.5rem] rounded-full hover:bg-primary hover:text-light md:hover:bg-transparent md:hover:text-yellowish md:hover:border-b-[1px] md:hover:border-b-primary md:rounded-none 
+    }
+
+    .toggle__menu{
+        @apply cursor-pointer md:hidden
+    }
+
+    .toggle__menu span{
+        @apply w-[.5rem] h-[.5rem] rounded-full bg-primary block transition ease-in-out duration-500
+    }
+
+    .toggle__menu span:nth-child(2){
+        @apply my-[.2rem]
+    }
+
+    .toggle__menu.open span{
+        @apply bg-yellowish
+    }
+
+    .toggle__menu.open span:first-child{
+        @apply translate-y-[2px] rotate-[-230deg] transition ease-linear duration-500;
+    }
+    .toggle__menu.open span:nth-child(2){
+        @apply my-[.2rem] transition ease-linear duration-500;
+    }
+    .toggle__menu.open span:last-child{
+        @apply translate-y-[-1px] rotate-[230deg] transition ease-linear duration-500;
+    }
+
+
+    /* ---------- MOBILE BANNER ---------- */
+
+    .banner{
+        @apply bg-light
+    }
+
+    .banner__mobile{
+        @apply flex flex-col items-center text-center lg:hidden
+    }
+
+    .banner__mob__text h1{
+        @apply text-[3rem] leading-[5rem]
+    }
+
+    .banner__mob__text h1 span{
+        @apply text-primary font-bold
+    }
+
+    .banner__mob__text h3{
+        @apply text-[1.5rem] 
+    }
+
+    .banner__mob__text h3 span{
+        @apply text-primary
+    }
+
+    .banner__mob__img img{
+        @apply w-[120%] my-[1rem]
+    }
+
+    .banner__mob__actions .btn{
+        @apply w-full lg:w-fit
+    }
+
+    .banner__mob__socials{
+        @apply mt-[1rem]
+    }
+
+    .banner__mob__socials ul{
+        @apply flex gap-[1rem] text-primary  text-[1.5rem]
+    }
+
+    .banner__mob__socials ul li{
+        @apply cursor-pointer hover:bg-yellowish hover:text-dark  hover:rounded-full py-[.3rem] px-[.7rem]
+    }
+
+
+    /* ---------- DESKTOP BANNER ---------- */
+
+    .banner__desktop{
+        @apply hidden lg:grid lg:grid-cols-2 lg:gap-x-[2rem] justify-between items-center md:hidden sm:hidden
+    }
+
+    .banner__img img{
+        @apply max-w-[50rem]
+    }
+
+    .banner__text h1{
+        @apply text-[4rem] leading-[5rem]
+    }
+
+    .banner__text h1 span{
+        @apply text-primary font-bold
+    }
+
+    .banner__text h3{
+        @apply text-[1.5rem] mt-[1rem]
+    }
+
+    .banner__text h3 span{
+        @apply text-primary font-bold
+    }
+
+    .banner__text p{
+        @apply text-[1.2rem] my-[1rem]
+    }
+
+    .banner__text .action{
+        @apply mt-[1rem]
+    }
+
+    .banner__socials{
+        @apply mt-[3rem] flex items-center justify-between
+    }
+
+    .banner__socials ul{
+        @apply flex gap-[2rem] text-primary
+    }
+
+    .banner__socials ul li{
+        @apply cursor-pointer hover:text-yellowish hover:scale-125 transition ease-in-out duration-300
+    }
+
+    .banner__socials ul li a{
+        @apply text-[1.5rem]
+    }
+
+    .banner__socials span{
+        @apply w-[20rem] h-[.2rem] block bg-dark 
+    }
+
+    .banner__action a{
+        @apply text-primary text-[2rem] flex justify-center mt-[1.5rem] lg:mt-0
+    }
+
+
+
+    /* ---------- SERVICES ---------- */
+
+    .services{
+        @apply relative pt-[2rem] bg-light lg:pt-[5rem]
+    }
+
+    .services__wrapper{
+        @apply p-[2rem] rounded-[.5rem]
+    }
+
+    .services img{
+        @apply absolute translate-y-[-8rem] md:w-[5rem] 
+    }
+
+    .services__wrapper{
+        @apply flex flex-wrap gap-x-[1.5rem] justify-center items-center lg:flex-row lg:justify-evenly
+    }
+
+    .services__title{
+        @apply relative text-center mt-[1rem]
+    }
+
+    .services__title p{
+        @apply text-[1rem]
+    }
+
+    .services__title h1{
+        @apply absolute text-[4rem] right-0 left-0 mx-auto top-[.3rem] bg-text text-transparent opacity-[.2]
+    }
+
+    .services__title h3{
+        @apply text-[2.5rem] font-bold
+    }
+
+    .services__card{
+        @apply relative shadow-[-1px_0px_6px_rgba(0,0,0,.3)] rounded-[.5rem] p-[2rem] pt-[3rem] max-w-[20rem] mt-[3rem] md:max-w-[25rem] lg:max-w-[25rem]
+    }
+
+    .services__card p{
+        @apply text-right text-[2rem] text-primary lg:text-[3rem]
+    }
+
+    .services__no{
+        @apply absolute translate-y-[-5.5rem] text-[3rem] bg-clip-text text-transparent opacity-[.7]
+    }
+
+    .services__text h3{
+        @apply text-[1rem] lg:text-[1.5rem]
+    }
+
+    .services__text p{
+        @apply text-left text-[.8rem] my-[1rem] text-dark lg:text-[1rem]
+    }
+
+
+
+    /* ---------- ABOUT ME ---------- */
+
+    .about{
+        @apply pt-[2rem] bg-light lg:pt-[2rem]
+    }
+
+    .about__wrapper{
+        @apply bg-primary p-[2rem] rounded-[.5rem] md:flex md:items-center md:justify-between md:gap-[2rem]
+    }
+
+    .about__img{
+        @apply flex justify-center
+    }
+
+    .about__img img{
+        @apply translate-x-[-1rem]  max-w-[20rem] lg:max-w-[60rem]
+    }
+
+    .about__title{
+        @apply relative text-center my-[1.5rem] text-light lg:text-left
+    }
+
+    .about__title p{
+        @apply text-[1rem]
+    }
+
+    .about__title h1{
+        @apply absolute text-[4rem] right-0 left-0 mx-auto top-[.3rem] bg-text text-transparent opacity-[.2]
+    }
+
+    .about__title h3{
+        @apply text-[2.5rem] font-bold lg:translate-x-[3.5rem]
+    }
+
+    .about__content{
+        @apply text-light text-justify
+    }
+
+    .about__content p{
+        @apply mb-[1rem] text-[1rem] lg:text-[1.2rem]
+    }
+
+    .about__content a{
+        @apply w-full text-center lg:w-fit lg:mt-[1rem]
+    }
+
+
+
+    /* ---------- PROJECTS ---------- */
+
+    .projects{
+        @apply bg-light p-[2rem]
+    }
+
+    .projects__title{
+        @apply relative text-center my-[1rem]
+    }
+
+    .projects__title p{
+        @apply text-[1rem]
+    }
+
+    .projects__title h1{
+        @apply absolute text-[4rem] right-0 left-0 mx-auto top-[.3rem] bg-text text-transparent opacity-[.2]
+    }
+
+    .projects__title h3{
+        @apply text-[2.5rem] font-bold
+    }
+    
+    .projects__wrapper{
+        @apply flex flex-col items-center mt-[2rem] md:grid md:grid-cols-3 md:gap-[2rem]
+    }
+
+    .projects__card{
+        @apply max-w-[25rem] mt-[2rem] bg-primary rounded-[.5rem] shadow-[0px_0px_6px_rgba(0,0,0,.1)] overflow-hidden transition ease-in-out duration-300 lg:mt-0
+    }
+
+    .projects__card:hover img{
+        @apply scale-105 transition ease-in-out duration-300
+    }
+
+    .projects__img{
+        @apply rounded-t-[.5rem]
+    }
+
+    .projects__action{
+        @apply p-[1rem] 
+    }
+
+    .projects__action ul{
+        @apply flex justify-between text-[1.1rem]
+    }
+
+    .projects__action a{
+        @apply text-light hover:text-dark transition ease-in-out duration-300
+    }
+
+    .projects__action i {
+        @apply mr-[.5rem]
+    }
+
+
+
+    /* ---------- SKILLS ---------- */
+
+    .skills{
+        @apply bg-light py-[2rem]
+    }
+
+    .skills__title{
+        @apply relative text-center mb-[1.5rem]
+    }
+
+    .skills__title p{
+        @apply text-[1rem]
+    }
+
+    .skills__title h1{
+        @apply absolute text-[4rem] right-0 left-0 mx-auto top-[.3rem] bg-text text-transparent opacity-[.2]
+    }
+
+    .skills__title h3{
+        @apply text-[2.5rem] font-bold
+    }
+
+    .skills__wrapper{
+        @apply flex flex-wrap w-[25rem] mx-auto gap-[3rem] justify-center md:gap-[5rem]  md:w-[50rem] p-[2rem]
+    }
+
+    .skills__img{
+        @apply relative flex items-center justify-center cursor-pointer transition ease-in-out duration-300
+    }
+
+    .skills__img:hover img{
+        @apply opacity-50 transition ease-in-out duration-300
+    }
+
+    .skills__img:hover .skills__text{
+        @apply opacity-100 transition ease-in-out duration-300
+    }
+
+    .skills__img img{
+        @apply w-[5rem] md:w-[7rem]
+    }
+
+    .skills__text{
+        @apply absolute left-0 right-0 mx-auto flex justify-center bg-primary text-light text-[.6rem] md:text-[.8rem] w-[5rem] md:w-[7rem] opacity-0 rounded-full p-[.5rem] transition ease-in-out duration-300
+    }
+
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact{
+        @apply py-[2rem] bg-primary
+    }
+
+    .contact__title{
+        @apply relative text-light text-center mb-[1.5rem] md:mb-[3rem]
+    }
+
+    .contact__title p{
+        @apply text-[1rem]
+    }
+
+    .contact__title h1{
+        @apply absolute text-[4rem] right-0 left-0 mx-auto top-[.3rem] bg-text text-transparent opacity-[.2]
+    }
+
+    .contact__title h3{
+        @apply text-[2.5rem] font-bold
+    }
+
+    .contact__wrapper{
+        @apply grid grid-cols-1 gap-y-[1rem] md:flex md:justify-between md:my-[1rem]
+    }
+
+    .contact__text{
+        @apply flex flex-col items-center md:pl-[5rem]
+    }
+
+    .contact__text ul{
+        @apply flex flex-col items-center gap-y-[.5rem] md:items-start md:gap-y-[2rem]
+    }
+
+    .contact__text ul li{
+        @apply flex items-center text-light gap-x-[.5rem] md:text-[1.2rem]
+    }
+
+    .contact__form{
+        @apply md:w-[50%]
+    }
+
+    .contact__form input{
+        @apply w-full h-[3rem] mb-[1rem] p-[1rem] rounded-[.5rem] md:w-[40%]
+    }
+
+    .contact__form textarea{
+        @apply w-full h-[10rem] p-[1rem] rounded-[.5rem] mb-[1rem] md:w-[80%]
+    }
+
+    .contact__submit a{
+        @apply w-full text-center md:w-fit
+    }
+
+
+
+    /* ---------- FOOTER ---------- */
+
+
+    .footer{
+        @apply bg-primary border-t-[1px] border-t-grey
+    }
+
+    .footer__wrapper{
+        @apply flex flex-col gap-y-[1rem] text-light items-center justify-between md:flex-row md:gap-y-0
+    }
+
+    .footer__icons ul{
+        @apply flex text-light text-[1.2rem]
+    }
+
+    .footer__icons ul li{
+        @apply mr-[1.5rem]
+    }
+
+    .footer__icons ul li a{
+        @apply hover:text-dark
+    }
+}
